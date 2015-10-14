@@ -171,6 +171,7 @@ namespace CustomScraper
         /// <returns>A completed song object.</returns>
         protected Song ParseSong(dynamic json)
         {
+            // TODO: Create concrete class for the json result
             var song = new Song()
             {
                 CFId = json[0],
@@ -180,6 +181,7 @@ namespace CustomScraper
                 Lead = json[10].ToString().Contains("lead"),
                 Rhythm = json[10].ToString().Contains("rhythm"),
                 Bass = json[10].ToString().Contains("bass"),
+                Vocals = json[10].ToString().Contains("vocals"),
                 Official = json[15]
             };
             return song;
