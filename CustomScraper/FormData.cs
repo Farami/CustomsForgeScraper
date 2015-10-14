@@ -157,11 +157,11 @@ namespace CustomScraper
         /// </summary>
         /// <param name="search">The term(s) to search for.</param>
         /// <returns>Returns a FormUrlEncodedContent for searching by song and artist.</returns>
-        public static HttpContent GetFormData(string search)
+        public static HttpContent GetFormData(string search, string artist = null, string song = null)
         {
             var list = new List<KeyValuePair<string, string>>();
-            list.Add(new KeyValuePair<string, string>("columns[2][search][value]", GetRequestParameter("song", ref search)));
-            list.Add(new KeyValuePair<string, string>("columns[1][search][value]", GetRequestParameter("artist", ref search)));
+            list.Add(new KeyValuePair<string, string>("columns[2][search][value]", song));
+            list.Add(new KeyValuePair<string, string>("columns[1][search][value]", artist));
             list.Add(new KeyValuePair<string, string>("search[value]", search));
             list.AddRange(_baseFormData);
             return new FormUrlEncodedContent(list);

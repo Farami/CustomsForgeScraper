@@ -42,26 +42,22 @@ namespace ScraperExample
             {
                 DoLogin();
             }
-
-            AddResults(DoLookup(txtSearch.Text));
-        }
-
-        private List<Song> DoLookup(string term)
-        {
-            var res = client.Lookup(term);
-            if(res.Error)
+            // NOTE: Artist and Song field are optional
+            var result = client.Lookup(txtSearch.Text, txtArtist.Text, txtSong.Text);
+            dataSearchResults.Rows.Clear();
+            if (result.Error)
             {
-                return null;
+                MessageBox.Show(result.ErrorType.ToString());
             }
             else
             {
-                return res.Results;
+                AddResults(result.Results);
             }
+
         }
 
         private void AddResults(List<Song> songs)
         {
-            dataSearchResults.Rows.Clear();
             foreach(var song in songs)
             {
                 dataSearchResults.Rows.Add(song.Artist, song.Title, song.Tuning, song.Official, song.Lead, song.Rhythm, song.Bass, song.Vocals, song.GetDownloadLink());
@@ -81,6 +77,8 @@ namespace ScraperExample
         {
             dataSearchResults.Rows.Clear();
             txtSearch.Text = "";
+            txtArtist.Text = "";
+            txtSong.Text = "";
         }
     }
 }

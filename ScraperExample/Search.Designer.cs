@@ -42,6 +42,10 @@
             this.Bass = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Vocals = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Download = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtArtist = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtSong = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataSearchResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,16 +62,16 @@
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(60, 10);
+            this.txtSearch.Location = new System.Drawing.Point(74, 10);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(829, 20);
+            this.txtSearch.Size = new System.Drawing.Size(815, 20);
             this.txtSearch.TabIndex = 1;
             // 
             // butSearch
             // 
             this.butSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.butSearch.Location = new System.Drawing.Point(154, 36);
+            this.butSearch.Location = new System.Drawing.Point(154, 89);
             this.butSearch.Name = "butSearch";
             this.butSearch.Size = new System.Drawing.Size(735, 23);
             this.butSearch.TabIndex = 2;
@@ -77,7 +81,7 @@
             // 
             // butClear
             // 
-            this.butClear.Location = new System.Drawing.Point(16, 36);
+            this.butClear.Location = new System.Drawing.Point(16, 89);
             this.butClear.Name = "butClear";
             this.butClear.Size = new System.Drawing.Size(118, 23);
             this.butClear.TabIndex = 3;
@@ -102,9 +106,9 @@
             this.Bass,
             this.Vocals,
             this.Download});
-            this.dataSearchResults.Location = new System.Drawing.Point(16, 65);
+            this.dataSearchResults.Location = new System.Drawing.Point(16, 118);
             this.dataSearchResults.Name = "dataSearchResults";
-            this.dataSearchResults.Size = new System.Drawing.Size(873, 332);
+            this.dataSearchResults.Size = new System.Drawing.Size(873, 279);
             this.dataSearchResults.TabIndex = 4;
             this.dataSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSearchResults_CellClick);
             // 
@@ -172,12 +176,48 @@
             this.Download.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Download.Width = 61;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Filter artist";
+            // 
+            // txtArtist
+            // 
+            this.txtArtist.Location = new System.Drawing.Point(74, 36);
+            this.txtArtist.Name = "txtArtist";
+            this.txtArtist.Size = new System.Drawing.Size(815, 20);
+            this.txtArtist.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Filter song";
+            // 
+            // txtSong
+            // 
+            this.txtSong.Location = new System.Drawing.Point(74, 63);
+            this.txtSong.Name = "txtSong";
+            this.txtSong.Size = new System.Drawing.Size(815, 20);
+            this.txtSong.TabIndex = 8;
+            // 
             // Search
             // 
             this.AcceptButton = this.butSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 409);
+            this.Controls.Add(this.txtSong);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtArtist);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataSearchResults);
             this.Controls.Add(this.butClear);
             this.Controls.Add(this.butSearch);
@@ -208,5 +248,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Bass;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Vocals;
         private System.Windows.Forms.DataGridViewLinkColumn Download;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtArtist;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSong;
     }
 }

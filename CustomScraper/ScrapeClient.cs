@@ -116,10 +116,10 @@ namespace CustomScraper
         /// <param name="search">Terms to search by.</param>
         /// <param name="maxResults">The maximum amount of results to parse; default is 0 (unlimited).</param>
         /// <returns>Returns an object specifying success/fail with error reason on fail or list of results on success.</returns>
-        public SongRequest Lookup(string search, int maxResults = 0)
+        public SongRequest Lookup(string search, string artist = null, string songTitle = null, int maxResults = 0)
         {
             var result = new SongRequest();
-            string json = RequestJson(search);
+            string json = RequestJson(search, artist, songTitle);
             dynamic data = JObject.Parse(json);
 
             if(data.data.Count == 0)
@@ -149,9 +149,10 @@ namespace CustomScraper
         /// <param name="search">The term(s) to search for.</param>
         /// <param name="relog">Flag indicating whether it should try to log in if logged out automatically; used to ensure there isn't an endless loop.</param>
         /// <returns></returns>
-        protected string RequestJson(string search, bool relog = false)
+        protected string RequestJson(string search, string artist = null, string songTitle = null, bool relog = false)
         {
-            var res = client.PostAsync(SONG_SEARCH_URL, FormData.GetFormData(search)).Result;
+            var formData = FormData.GetFormData(search, artist, songTitle);
+            var res = client.PostAsync(SONG_SEARCH_URL, formData).Result;
             if (res.RequestMessage != null && res.RequestMessage.RequestUri.ToString().Contains("section=login"))
             {
                 if(relog)
@@ -159,7 +160,7 @@ namespace CustomScraper
                     throw new Exception("Failed to log in, breaking endless loop.");
                 }
                 Login();
-                return RequestJson(search, true);
+                return RequestJson(search, artist, songTitle, true);
             }
             return res.Content.ReadAsStringAsync().Result;
         }
