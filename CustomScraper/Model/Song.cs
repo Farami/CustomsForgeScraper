@@ -1,17 +1,24 @@
-﻿namespace CustomScraper.Model
+﻿using System;
+
+namespace CustomScraper.Model
 {
     public class Song
     {
         private const string DOWNLOAD_BASE = "http://customsforge.com/process.php?id=";
         public string Artist { get; set; }
         public string Title { get; set; }
+        public string Album { get; set; }
         public string Tuning { get; set; }
         public bool Official { get; set; }
         public int CFId { get; set; }
-        public bool Lead { get; set; }
-        public bool Rhythm { get; set; }
-        public bool Bass { get; set; }
-        public bool Vocals { get; set; }
+        public SongPath Paths { get; set; }
+        public SongPlatform Platforms { get; set; }
+        public string Author { get; set; }
+        public string Version { get; set; }
+        public bool DynamicDifficulty { get; set; }
+        public long Downloads { get; set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime Updated { get; set; }
 
         /// <summary>
         /// Gets a formatted song title.

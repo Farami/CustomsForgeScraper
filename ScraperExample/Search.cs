@@ -60,13 +60,14 @@ namespace ScraperExample
         {
             foreach(var song in songs)
             {
-                dataSearchResults.Rows.Add(song.Artist, song.Title, song.Tuning, song.Official, song.Lead, song.Rhythm, song.Bass, song.Vocals, song.GetDownloadLink());
+                dataSearchResults.Rows.Add(song.Official, song.Artist, song.Title, song.Album, song.Tuning, song.Author, song.Version, song.CreateDate.ToShortDateString(), song.Updated.ToShortDateString(), song.Downloads, song.Paths.Lead, song.Paths.Rhythm, song.Paths.Bass, song.Paths.Vocals, song.DynamicDifficulty, song.Platforms.PC, song.Platforms.Mac, song.Platforms.Xbox, song.Platforms.Playstation, song.GetDownloadLink());
             }
         }
 
         private void dataSearchResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 8)
+            var grid = (DataGridView)sender;
+            if(grid.Columns[e.ColumnIndex].Name == "Download")
             {
                 var url = (string)((DataGridView)sender).Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
                 System.Diagnostics.Process.Start(url);

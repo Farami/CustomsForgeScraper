@@ -114,12 +114,16 @@ namespace CustomScraper
         /// Performs a search for the specified terms on the song and artist field.
         /// </summary>
         /// <param name="search">Terms to search by.</param>
-        /// <param name="maxResults">The maximum amount of results to parse; default is 0 (unlimited).</param>
+        /// <param name="artist">Specifies the artist to filter by.</param>
+        /// <param name="songTitle">Specifies the song title to filter by.</param>
+        /// <param name="resultsPerPage">Specifies the amount of results per page. This seems to be unlimited but keep low. Default is 25.</param>
+        /// <param name="pageNumber">The page number to load, 0 based. Default is 0.</param>
+        /// <param name="maxResults">The maximum amount of results to parse; default is 0 (unlimited). Returns soft error if exceeded and not 0.</param>
         /// <returns>Returns an object specifying success/fail with error reason on fail or list of results on success.</returns>
-        public SongRequest Lookup(string search, string artist = null, string songTitle = null, int maxResults = 0)
+        public SongRequest Lookup(string search, string artist = null, string songTitle = null, int resultsPerPage = 25, int pageNumber = 0, int maxResults = 0)
         {
             var result = new SongRequest();
-            string json = RequestJson(search, artist, songTitle);
+            string json = RequestJson(search, artist, songTitle, resultsPerPage, pageNumber);
             dynamic data = JObject.Parse(json);
 
             if(data.data.Count == 0)
@@ -136,7 +140,7 @@ namespace CustomScraper
             {
                 foreach(dynamic song in data.data)
                 {
-                    result.Results.Add(ParseSong(song));
+                    result.Results.Add(Parser.ParseSong(song));
                 }
             }
 
@@ -149,9 +153,9 @@ namespace CustomScraper
         /// <param name="search">The term(s) to search for.</param>
         /// <param name="relog">Flag indicating whether it should try to log in if logged out automatically; used to ensure there isn't an endless loop.</param>
         /// <returns></returns>
-        protected string RequestJson(string search, string artist = null, string songTitle = null, bool relog = false)
+        protected string RequestJson(string search, string artist, string songTitle, int resultsPerPage, int pageNumber, bool relog = false)
         {
-            var formData = FormData.GetFormData(search, artist, songTitle);
+            var formData = FormData.GetFormData(search, artist, songTitle, resultsPerPage, pageNumber);
             var res = client.PostAsync(SONG_SEARCH_URL, formData).Result;
             if (res.RequestMessage != null && res.RequestMessage.RequestUri.ToString().Contains("section=login"))
             {
@@ -160,32 +164,9 @@ namespace CustomScraper
                     throw new Exception("Failed to log in, breaking endless loop.");
                 }
                 Login();
-                return RequestJson(search, artist, songTitle, true);
+                return RequestJson(search, artist, songTitle, resultsPerPage, pageNumber, true);
             }
             return res.Content.ReadAsStringAsync().Result;
-        }
-
-        /// <summary>
-        /// Given a json object returns a song object.
-        /// </summary>
-        /// <param name="json">The parsed json array from CustomsForge.</param>
-        /// <returns>A completed song object.</returns>
-        protected Song ParseSong(dynamic json)
-        {
-            // TODO: Create concrete class for the json result
-            var song = new Song()
-            {
-                CFId = json[0],
-                Artist = WebUtility.HtmlDecode((string)json[1]),
-                Title = WebUtility.HtmlDecode((string)json[2]),
-                Tuning = WebUtility.HtmlDecode((string)json[4]),
-                Lead = json[10].ToString().Contains("lead"),
-                Rhythm = json[10].ToString().Contains("rhythm"),
-                Bass = json[10].ToString().Contains("bass"),
-                Vocals = json[10].ToString().Contains("vocals"),
-                Official = json[15]
-            };
-            return song;
         }
     }
 }

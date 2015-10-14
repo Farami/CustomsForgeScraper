@@ -33,19 +33,30 @@
             this.butSearch = new System.Windows.Forms.Button();
             this.butClear = new System.Windows.Forms.Button();
             this.dataSearchResults = new System.Windows.Forms.DataGridView();
-            this.Artist = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Song = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tuning = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Official = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Lead = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Rhythm = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Bass = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Vocals = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Download = new System.Windows.Forms.DataGridViewLinkColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtArtist = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSong = new System.Windows.Forms.TextBox();
+            this.Official = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Artist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Song = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tuning = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Version = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Downloads = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lead = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Rhythm = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Bass = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Vocals = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DynamicDifficulty = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PC = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Mac = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Xbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Playstation = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Download = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSearchResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.Location = new System.Drawing.Point(74, 10);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(815, 20);
+            this.txtSearch.Size = new System.Drawing.Size(994, 20);
             this.txtSearch.TabIndex = 1;
             // 
             // butSearch
@@ -73,7 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.butSearch.Location = new System.Drawing.Point(154, 89);
             this.butSearch.Name = "butSearch";
-            this.butSearch.Size = new System.Drawing.Size(735, 23);
+            this.butSearch.Size = new System.Drawing.Size(914, 23);
             this.butSearch.TabIndex = 2;
             this.butSearch.Text = "Search";
             this.butSearch.UseVisualStyleBackColor = true;
@@ -97,20 +108,74 @@
             this.dataSearchResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataSearchResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Official,
             this.Artist,
             this.Song,
+            this.Album,
             this.Tuning,
-            this.Official,
+            this.Author,
+            this.Version,
+            this.CreateDate,
+            this.Updated,
+            this.Downloads,
             this.Lead,
             this.Rhythm,
             this.Bass,
             this.Vocals,
+            this.DynamicDifficulty,
+            this.PC,
+            this.Mac,
+            this.Xbox,
+            this.Playstation,
             this.Download});
             this.dataSearchResults.Location = new System.Drawing.Point(16, 118);
             this.dataSearchResults.Name = "dataSearchResults";
-            this.dataSearchResults.Size = new System.Drawing.Size(873, 279);
+            this.dataSearchResults.Size = new System.Drawing.Size(1052, 302);
             this.dataSearchResults.TabIndex = 4;
             this.dataSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSearchResults_CellClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Filter artist";
+            // 
+            // txtArtist
+            // 
+            this.txtArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtArtist.Location = new System.Drawing.Point(74, 36);
+            this.txtArtist.Name = "txtArtist";
+            this.txtArtist.Size = new System.Drawing.Size(994, 20);
+            this.txtArtist.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Filter song";
+            // 
+            // txtSong
+            // 
+            this.txtSong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSong.Location = new System.Drawing.Point(74, 63);
+            this.txtSong.Name = "txtSong";
+            this.txtSong.Size = new System.Drawing.Size(994, 20);
+            this.txtSong.TabIndex = 8;
+            // 
+            // Official
+            // 
+            this.Official.HeaderText = "Official";
+            this.Official.Name = "Official";
+            this.Official.ReadOnly = true;
+            this.Official.Width = 45;
             // 
             // Artist
             // 
@@ -126,6 +191,13 @@
             this.Song.ReadOnly = true;
             this.Song.Width = 57;
             // 
+            // Album
+            // 
+            this.Album.HeaderText = "Album";
+            this.Album.Name = "Album";
+            this.Album.ReadOnly = true;
+            this.Album.Width = 61;
+            // 
             // Tuning
             // 
             this.Tuning.HeaderText = "Tuning";
@@ -133,12 +205,40 @@
             this.Tuning.ReadOnly = true;
             this.Tuning.Width = 65;
             // 
-            // Official
+            // Author
             // 
-            this.Official.HeaderText = "Official";
-            this.Official.Name = "Official";
-            this.Official.ReadOnly = true;
-            this.Official.Width = 45;
+            this.Author.HeaderText = "Author";
+            this.Author.Name = "Author";
+            this.Author.ReadOnly = true;
+            this.Author.Width = 63;
+            // 
+            // Version
+            // 
+            this.Version.HeaderText = "Version";
+            this.Version.Name = "Version";
+            this.Version.ReadOnly = true;
+            this.Version.Width = 67;
+            // 
+            // CreateDate
+            // 
+            this.CreateDate.HeaderText = "Created";
+            this.CreateDate.Name = "CreateDate";
+            this.CreateDate.ReadOnly = true;
+            this.CreateDate.Width = 69;
+            // 
+            // Updated
+            // 
+            this.Updated.HeaderText = "Updated";
+            this.Updated.Name = "Updated";
+            this.Updated.ReadOnly = true;
+            this.Updated.Width = 73;
+            // 
+            // Downloads
+            // 
+            this.Downloads.HeaderText = "Downloads";
+            this.Downloads.Name = "Downloads";
+            this.Downloads.ReadOnly = true;
+            this.Downloads.Width = 85;
             // 
             // Lead
             // 
@@ -168,6 +268,51 @@
             this.Vocals.ReadOnly = true;
             this.Vocals.Width = 45;
             // 
+            // DynamicDifficulty
+            // 
+            this.DynamicDifficulty.HeaderText = "DD";
+            this.DynamicDifficulty.Name = "DynamicDifficulty";
+            this.DynamicDifficulty.ReadOnly = true;
+            this.DynamicDifficulty.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DynamicDifficulty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DynamicDifficulty.Width = 48;
+            // 
+            // PC
+            // 
+            this.PC.HeaderText = "PC";
+            this.PC.Name = "PC";
+            this.PC.ReadOnly = true;
+            this.PC.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PC.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.PC.Width = 46;
+            // 
+            // Mac
+            // 
+            this.Mac.HeaderText = "Mac";
+            this.Mac.Name = "Mac";
+            this.Mac.ReadOnly = true;
+            this.Mac.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Mac.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Mac.Width = 53;
+            // 
+            // Xbox
+            // 
+            this.Xbox.HeaderText = "Xbox";
+            this.Xbox.Name = "Xbox";
+            this.Xbox.ReadOnly = true;
+            this.Xbox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Xbox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Xbox.Width = 56;
+            // 
+            // Playstation
+            // 
+            this.Playstation.HeaderText = "PS3";
+            this.Playstation.Name = "Playstation";
+            this.Playstation.ReadOnly = true;
+            this.Playstation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Playstation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Playstation.Width = 52;
+            // 
             // Download
             // 
             this.Download.HeaderText = "Download";
@@ -176,44 +321,12 @@
             this.Download.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Download.Width = 61;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Filter artist";
-            // 
-            // txtArtist
-            // 
-            this.txtArtist.Location = new System.Drawing.Point(74, 36);
-            this.txtArtist.Name = "txtArtist";
-            this.txtArtist.Size = new System.Drawing.Size(815, 20);
-            this.txtArtist.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 66);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Filter song";
-            // 
-            // txtSong
-            // 
-            this.txtSong.Location = new System.Drawing.Point(74, 63);
-            this.txtSong.Name = "txtSong";
-            this.txtSong.Size = new System.Drawing.Size(815, 20);
-            this.txtSong.TabIndex = 8;
-            // 
             // Search
             // 
             this.AcceptButton = this.butSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 409);
+            this.ClientSize = new System.Drawing.Size(1080, 432);
             this.Controls.Add(this.txtSong);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtArtist);
@@ -239,18 +352,29 @@
         private System.Windows.Forms.Button butSearch;
         private System.Windows.Forms.Button butClear;
         private System.Windows.Forms.DataGridView dataSearchResults;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Artist;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Song;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tuning;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Official;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Lead;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Rhythm;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Bass;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Vocals;
-        private System.Windows.Forms.DataGridViewLinkColumn Download;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtArtist;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSong;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Official;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Artist;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Song;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Album;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tuning;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Version;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Updated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Downloads;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Lead;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Rhythm;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Bass;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Vocals;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DynamicDifficulty;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn PC;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Mac;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Xbox;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Playstation;
+        private System.Windows.Forms.DataGridViewLinkColumn Download;
     }
 }

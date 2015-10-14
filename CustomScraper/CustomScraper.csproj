@@ -50,7 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Song.cs" />
+    <Compile Include="Model\SongPath.cs" />
+    <Compile Include="Model\SongPlatform.cs" />
     <Compile Include="Model\SongRequest.cs" />
+    <Compile Include="Parser.cs" />
     <Compile Include="ScrapeClient.cs" />
     <Compile Include="FormData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

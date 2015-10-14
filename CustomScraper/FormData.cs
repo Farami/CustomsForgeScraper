@@ -12,8 +12,6 @@ namespace CustomScraper
         private static KeyValuePair<string, string>[] _baseFormData = new[]{
                 new KeyValuePair<string, string>("search[regex]", "false"),
                 new KeyValuePair<string, string>("draw", "2"),
-                new KeyValuePair<string, string>("start", "0"),
-                new KeyValuePair<string, string>("length", "25"),
                 new KeyValuePair<string, string>("order[0][column]", "2"),
                 new KeyValuePair<string, string>("order[0][dir]", "asc"),
                 new KeyValuePair<string, string>("columns[0][data][_]", ""),
@@ -157,12 +155,14 @@ namespace CustomScraper
         /// </summary>
         /// <param name="search">The term(s) to search for.</param>
         /// <returns>Returns a FormUrlEncodedContent for searching by song and artist.</returns>
-        public static HttpContent GetFormData(string search, string artist = null, string song = null)
+        public static HttpContent GetFormData(string search, string artist, string song, int resultsPerPage, int pageNumber)
         {
             var list = new List<KeyValuePair<string, string>>();
             list.Add(new KeyValuePair<string, string>("columns[2][search][value]", song));
             list.Add(new KeyValuePair<string, string>("columns[1][search][value]", artist));
             list.Add(new KeyValuePair<string, string>("search[value]", search));
+            list.Add(new KeyValuePair<string, string>("start", (resultsPerPage * pageNumber).ToString()));
+            list.Add(new KeyValuePair<string, string>("length", resultsPerPage.ToString()));
             list.AddRange(_baseFormData);
             return new FormUrlEncodedContent(list);
         }
