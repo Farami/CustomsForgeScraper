@@ -152,6 +152,11 @@ namespace CustomScraper
 				new KeyValuePair<string, string>("columns[20][search][regex]", "false"),
         };
 
+        /// <summary>
+        /// Gets the form data required to perform a search by song and artist only.
+        /// </summary>
+        /// <param name="search">The term(s) to search for.</param>
+        /// <returns>Returns a FormUrlEncodedContent for searching by song and artist.</returns>
         public static HttpContent GetFormData(string search)
         {
             var list = new List<KeyValuePair<string, string>>();
