@@ -17,7 +17,7 @@ List<Song> searchResults = client.Lookup("metallica").Results;
 There's not too much more to it than that, an example project is included.
 
 #Notes
-Logging in is particularly slow - logging in requires a token from the login page. Getting the token and hitting the login page (across potentially slow servers...) = no fun. ):
+Logging in is particularly slow - logging in requires a token from the login page. Getting the token and hitting the login page (across potentially slow servers...)is no fun. ಠ╭╮ಠ
 
 Once logged in it will be fast unless:
 * CustomsForge is running slow
