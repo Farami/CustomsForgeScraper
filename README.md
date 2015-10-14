@@ -1,5 +1,5 @@
 # CustomsForgeScraper
-A simple C# library to log in and search for songs on CustomsForge.com
+A simple C# library to log in and search for songs on [CustomsForge](http://www.customsforge.com).
 
 Happy to accept improvements/changes, just make a pull request.
 
